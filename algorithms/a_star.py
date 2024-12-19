@@ -1,8 +1,6 @@
 import osmnx as ox 
 import networkx as nx
 import heapq
-import dijkstra
-import numpy as np
 import itertools
 from math import radians, cos, sin, asin, sqrt
 place_name = "Truc Bach, Ba Dinh, Hanoi, Vietnam"
