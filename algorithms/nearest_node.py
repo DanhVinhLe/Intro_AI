@@ -21,6 +21,6 @@ def nearest_node(G, point, k):
     nearest_indices = distances.argsort()[:k]
     nearest_nodes = [list(G.nodes)[i] for i in nearest_indices]
     nearest_distances = distances[nearest_indices]
-    for i in range(k):
-        print(f"Node: {nearest_nodes[i]}, Distance: {nearest_distances[i]}")
-    return nearest_nodes
+    # for i in range(k):
+    #     print(f"Node: {nearest_nodes[i]}, Distance: {nearest_distances[i]}")
+    return nearest_nodes, nearest_distances

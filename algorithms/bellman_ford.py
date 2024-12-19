@@ -1,10 +1,6 @@
 import osmnx as ox 
 import networkx as nx
 import numpy as np
-place_name = "Truc Bach, Ba Dinh, Hanoi, Vietnam"
-graph_file = 'map/map_trucbach.graphml'
-
-graph = ox.load_graphml(graph_file)
 
 def bellman_ford(graph, start_node, end_node):
     # Initialize distances from source to all other nodes as infinity

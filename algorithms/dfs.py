@@ -1,10 +1,7 @@
 import osmnx as ox 
 import networkx as nx
 import json
-place_name = "Truc Bach, Ba Dinh, Hanoi, Vietnam"
-graph_file = 'map/map_trucbach.graphml'
 
-graph = ox.load_graphml(graph_file)
 def dfs(graph, start_node, goal, path=None, visited=None):
     # path is the path from the start node to the current node 
     if path is None:

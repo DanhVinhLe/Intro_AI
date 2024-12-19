@@ -43,7 +43,7 @@ def a_star(graph, start_node, end_node, heuristic):
             while current in came_from:
                 current = came_from[current]
                 path.append(current)
-            return path[::-1]
+            return path[::-1], g_score[end_node]
 
         for neighbor in graph.neighbors(current):
             weight = graph[current][neighbor][0].get('length', 1)
@@ -57,4 +57,4 @@ def a_star(graph, start_node, end_node, heuristic):
                     enqueued[neighbor] = tentative_g_score
                     heapq.heappush(open_set, (f_score[neighbor], next(c), neighbor))
 
-    return None  
+    return None, None

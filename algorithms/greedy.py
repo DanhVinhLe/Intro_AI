@@ -1,13 +1,10 @@
 import osmnx as ox 
 import networkx as nx
 import json
-place_name = "Truc Bach, Ba Dinh, Hanoi, Vietnam"
-graph_file = 'map/map_trucbach.graphml'
 
-graph = ox.load_graphml(graph_file)
 # Greedy Best First Search
 # heuristic function to estimate the cost from the current node to the goal node
-def heuristic(node, end_node):
+def heuristic(graph, node, end_node):
     node_x, node_y = graph.nodes[node]['x'], graph.nodes[node]['y']
     goal_x, goal_y = graph.nodes[end_node]['x'], graph.nodes[end_node]['y']
     return ((node_x - goal_x) ** 2 + (node_y - goal_y) ** 2) ** 0.5
