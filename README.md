@@ -6,6 +6,6 @@
 
 2, Go to the folder `Intro_AI`
 
-3, Install necessary libraries: `pip install -r requirement.txt`
+3, Install necessary libraries: `pip install -r requirements.txt`
 
 4, Run the app: `python app.py`
