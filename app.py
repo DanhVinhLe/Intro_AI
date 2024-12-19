@@ -107,14 +107,21 @@ class MapApp:
         min_i, min_j = None, None
         dis_min = float('inf')
         min_path = None
+        check = False
         for id1, i in enumerate(near_start):
             for id2, j in enumerate(near_end):
                 path, dis = a_star.a_star(graph, i, j, heuristic= a_star.heuristic)
+                if path is None:
+                    continue
                 dis += (distance_start[id1] + distance_end[id2])
                 if dis < dis_min:
                     dis_min = dis
                     min_i, min_j = i, j
                     min_path = path
+                    check = True
+        if not check:
+            messagebox.showwarning("No Path", "No path found between the selected points.")
+            return
         self.start_node = min_i
         self.end_node = min_j
         self.route = min_path
