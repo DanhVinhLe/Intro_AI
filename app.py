@@ -61,7 +61,6 @@ class MapApp:
         self.ax.clear()
         self.ax.imshow(self.background_image, extent=[105.83469, 105.85153, 21.03979, 21.05118])
         ox.plot_graph(graph, ax=self.ax, show=False, close=False, bgcolor="lightgray", edge_color='none', node_size=0)
-        # ox.plot_graph(graph, ax=self.ax, show=False, close=False, bgcolor="lightgray", edge_color='black', node_size=0, edge_linewidth=2)
         if self.route:
             ox.plot_graph_route(
                 graph,
