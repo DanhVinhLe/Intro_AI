@@ -146,7 +146,7 @@ class MapApp:
 
     def calculate_route(self):
         """Calculate and display the shortest route."""
-        if len(self.selected_points) < 2:
+        if len(self.selected_points) != 2:
             messagebox.showwarning("Selection Error", "Please select two points before calculating.")
             return
         if self.selected_algorithm == "DFS" or self.selected_algorithm == "BFS":
