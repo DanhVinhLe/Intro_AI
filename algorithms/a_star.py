@@ -3,12 +3,7 @@ import networkx as nx
 import heapq
 import itertools
 from math import radians, cos, sin, asin, sqrt
-place_name = "Truc Bach, Ba Dinh, Hanoi, Vietnam"
-graph_file = 'map/map_trucbach.graphml'
-
-graph = ox.load_graphml(graph_file)
-
-def heuristic(node, goal):
+def heuristic(graph, node, goal):
     # Calculate the great-circle distance between two points on the Earth, haversine formula
     node_x, node_y = graph.nodes[node]['x'], graph.nodes[node]['y']
     goal_x, goal_y = graph.nodes[goal]['x'], graph.nodes[goal]['y']
@@ -29,7 +24,7 @@ def a_star(graph, start_node, end_node, heuristic):
     g_score = {node: float('inf') for node in graph.nodes}  # Cost from start to each node
     g_score[start_node] = 0
     f_score = {node: float('inf') for node in graph.nodes}  # Estimated total cost from start to end, heuristic + g_score
-    f_score[start_node] = heuristic(start_node, end_node)
+    f_score[start_node] = heuristic(graph, start_node, end_node)
 
     # To store enqueued nodes and their distances to avoid recomputation
     enqueued = {}
@@ -51,7 +46,7 @@ def a_star(graph, start_node, end_node, heuristic):
             if tentative_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
                 g_score[neighbor] = tentative_g_score
-                f_score[neighbor] = g_score[neighbor] + heuristic(neighbor, end_node)
+                f_score[neighbor] = g_score[neighbor] + heuristic(graph, neighbor, end_node)
 
                 if neighbor not in enqueued or tentative_g_score < enqueued[neighbor]:
                     enqueued[neighbor] = tentative_g_score

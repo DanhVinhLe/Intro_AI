@@ -9,12 +9,14 @@ def bellman_ford(graph, start_node, end_node):
     predecessor = {node: None for node in graph.nodes}
 
     # Relax edges |V| - 1 times
-    for _ in range(len(graph.nodes) - 1):
-        for u, v, data in graph.edges(data=True):
-            weight = data.get('length')
-            if distance[u] + weight < distance[v]:
-                distance[v] = distance[u] + weight
-                predecessor[v] = u
+    for _ in range(len(graph.nodes)-1):
+        for u in graph.nodes:
+            for v in graph.neighbors(u):
+                data = graph[u][v][0]
+                weight = data.get('length')
+                if distance[u] != float('inf') and distance[u] + weight < distance[v]:
+                    distance[v] = distance[u] + weight
+                    predecessor[v] = u
     if distance[end_node] == float('inf'):
         return None, None
     path = []

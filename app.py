@@ -171,8 +171,8 @@ class MapApp:
             self.plot_graph()
             return
         else:
-            near_start, distance_start = nearest_node.nearest_node(graph, [self.selected_points[0][0], self.selected_points[0][1]], k= 4, heuristic= nearest_node.heuristic)
-            near_end, distance_end = nearest_node.nearest_node(graph, [self.selected_points[1][0], self.selected_points[1][1]], k= 4, heuristic= nearest_node.heuristic)
+            near_start, distance_start = nearest_node.nearest_node(graph, [self.selected_points[0][0], self.selected_points[0][1]], k= 8, heuristic= nearest_node.heuristic)
+            near_end, distance_end = nearest_node.nearest_node(graph, [self.selected_points[1][0], self.selected_points[1][1]], k= 8, heuristic= nearest_node.heuristic)
             min_i, min_j = None, None
             dis_min = float('inf')
             min_path = None
